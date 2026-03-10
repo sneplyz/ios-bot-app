@@ -7,8 +7,11 @@ workflows:
       - name: Install Dependencies
         script: |
           pip install flet aiohttp
-      - name: Build IPA
+      - name: Build For Simulator
         script: |
-          yes | flet build ipa
+          flet build ios-simulator
+          # Упаковываем в ZIP, чтобы Codemagic точно увидел это как файл
+          cd build/ios/iphonesimulator
+          zip -r ../../../my_app.zip *.app
     artifacts:
-      - build/ios/ipa/*.ipa
+      - "*.zip"
