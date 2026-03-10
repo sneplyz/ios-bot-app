@@ -1,15 +1,14 @@
 workflows:
   ios-python-app:
-    name: ddosbysurgesociety
+    name: SurgeSocietyDDOS
     max_build_duration: 60
     instance_type: mac_mini_m1
-   scripts:
-      - name: Install Python and Flet
+    scripts:
+      - name: Install Dependencies
         script: |
           pip install flet aiohttp
-      - name: Build Project
+      - name: Build IPA
         script: |
           flet build ipa
     artifacts:
       - build/ios/ipa/*.ipa
-      - build/ios/app/*.app
