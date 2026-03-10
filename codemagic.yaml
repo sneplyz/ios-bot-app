@@ -9,7 +9,7 @@ workflows:
           pip install flet aiohttp
       - name: Build IPA
         script: |
-          flet build ios --no-sign
+          flet build ipa --no-sign
     artifacts:
       - build/ios/ipa/*.ipa
       - build/ios/app/*.app
